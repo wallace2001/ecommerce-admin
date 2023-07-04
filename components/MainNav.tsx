@@ -11,7 +11,7 @@ const MainNav = ({
 
     const pathname = usePathname();
     const params = useParams();
-    
+
     const routes = [
         {
             href: `/${params.storeId}`,
@@ -27,6 +27,16 @@ const MainNav = ({
             href: `/${params.storeId}/categories`,
             label: 'Categories',
             active: pathname === `/${params.storeId}/categories`
+        },
+        {
+            href: `/${params.storeId}/sizes`,
+            label: 'Sizes',
+            active: pathname === `/${params.storeId}/sizes`
+        },
+        {
+            href: `/${params.storeId}/colors`,
+            label: 'Colors',
+            active: pathname === `/${params.storeId}/colors`
         },
         {
             href: `/${params.storeId}/settings`,
@@ -52,5 +62,5 @@ const MainNav = ({
         </nav>
     );
 }
- 
+
 export default MainNav;
