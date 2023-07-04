@@ -5,7 +5,7 @@ import Heading from "@/components/ui/Heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useForm } from "react-hook-form";
-import { Billboard, Store } from "@prisma/client";
+import { Billboard } from "@prisma/client";
 import { Trash } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
@@ -15,8 +15,6 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "@/components/modals/alert-modal";
-import { ApiAlert } from "@/components/ui/api-alert";
-import { useOrigin } from "@/hook/use-origin";
 import ImageUpload from "@/components/ui/image-upload";
 
 interface BillboardFormProps {
@@ -36,7 +34,6 @@ const BillboardForm: React.FC<BillboardFormProps> = ({
 
     const params = useParams();
     const router = useRouter();
-    const origin = useOrigin();
 
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -157,7 +154,6 @@ const BillboardForm: React.FC<BillboardFormProps> = ({
                     <Button disabled={loading} className="ml-auto" type="submit">{action}</Button>
                 </form>
             </Form>
-            <Separator />
         </>
     );
 }
