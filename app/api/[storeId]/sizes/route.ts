@@ -58,17 +58,17 @@ export async function POST(
 
 export async function GET(
     request: Request,
-    { params }: { params: {sizeId: string} }
+    { params }: { params: {storeId: string} }
 ) {
     try {
 
-        if (!params.sizeId) {
-            return new NextResponse("Size id is required", { status: HTTP_STATUS.BAD_REQUEST });
+        if (!params.storeId) {
+            return new NextResponse("Store id is required", { status: HTTP_STATUS.BAD_REQUEST });
         }
 
         const color = await prismadb.size.findMany({
             where: {
-                storeId: params.sizeId
+                storeId: params.storeId
             }
         });
 
